@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Teacher Home Page</title>
+        
+        
+        <style>
+            body{
+                
+            }
+            .module_approved{
+                
+             background-color: greenyellow;   
+            }
+            .module_awaiting_approval{
+                             
+             background-color: yellow; 
+             
+            }
+            .module_sos{
+                             
+             background-color: red; 
+             
+            }
+            .end_of_plan{
+                
+                border-right: solid black 1px;
+                
+            }
+            .not_planned{
+                
+                background-color: lightgray;
+            }
+            
+            
+        </style>
+    </h:head>
+    <h:body>
+            <ui:include src="/topMenu.xhtml" />
+
+        <h:form>
+
+            <h2>Modul oversikt</h2>   
+            <p><h:commandButton value="Avventer godkjennelse (3)" action="#{viewController.openApprovalOverviewPage()}"/>
+               <h:commandButton value="Avventer hjelp (2)" action="#{viewController.openHelpOverviewPage()}"/>
+            </p>
+        
+        <table border="0" cellspacing="0" cellpadding="0">
+            
+            <tr>
+                <td><h:commandButton value="Tilføj modul" action="#{viewController.openAddEditModulePage}"/></td>
+                <td>[Modul navn]</td>
+                <td>[Modul navn]</td>
+                <td>[Modul navn]</td>
+                <td>[Modul navn]</td>
+                <td>[Modul navn]</td>
+                <td>[Modul navn]</td>
+                <td>[Modul navn]</td>
+                <td>[Modul navn]</td>
+                <td>[Modul navn]</td>
+                <td>[Modul navn]</td>
+            </tr>
+            <tr>
+                <td><h:commandButton value="Tilføj student" action="#{viewController.openAddEditStudent()}" /></td>
+
+                <td>[%/Antal]</td>
+                <td>[%/Antal]</td>
+                <td>[%/Antal]</td>
+                <td>[%/Antal]</td>
+                <td>[%/Antal]</td>
+                <td>[%/Antal]</td>
+                <td>[%/Antal]</td>
+                <td>[%/Antal]</td>
+                <td>[%/Antal]</td>
+                <td>[%/Antal]</td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td class="module_awaiting_approval"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class=""></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td></td>
+                <td class=""></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+            </tr>            
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td></td>
+                <td class=""></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+            </tr>            
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td></td>
+                <td class=""></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+            </tr>            
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class=""></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td></td>
+                <td></td>
+                <td class=""></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td></td>
+                <td></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td class="module_awaiting_approval"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td class="module_awaiting_approval"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td class="module_sos"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="not_planned"></td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td class="module_approved"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+            </tr>
+            <tr>
+                <td><h:commandLink value="[Student navn]" action="#{viewController.openStudentDetailsPage()}" /></td>
+                <td class="module_approved"></td>
+                <td class="module_sos"></td>
+                <td></td>
+                <td></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+                <td class="not_planned"></td>
+            </tr>
+
+        </table>
+            
+      </h:form>
+
+    </h:body>
+</html>
+

@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>addEditStudent</title>
+    </h:head>
+    <h:body>
+            <ui:include src="/topMenu.xhtml" />
+    
+<h2>[Handling (Tilføj/Rediger)] student</h2> 
+
+    <div>
+        <div style="width:50%;background-color: none;float: left">
+        
+<p>
+<label for="student_name">Student navn</label>  
+<br></br>
+<h:inputText style="width: 50%;" id="student_name"/>
+</p>
+            
+<p>
+<label for="student_email">Student navn</label>  
+<br></br>
+<h:inputText style="width: 50%;" id="student_email"/>
+</p>
+            
+<p>
+<label for="student_password1">Skriv passord</label>  
+<h:inputSecret style="width: 25%;" id="student_password1"/>
+<br></br>
+<label for="student_password2">Gjenta passord</label>  
+<h:inputSecret style="width: 25%;" id="student_password2"/>
+</p>
+
+        </div>
+        
+        <div style="width:50%;background-color: none;float: right">
+          
+         
+        </div>
+    </div>
+    <hr style="clear:left;"></hr>
+    <h:form>
+
+ 
+    
+    <div style="float: right;clear: both;background-color: none;">
+
+    <p>
+        <h:commandButton value="Annuller" action="#{viewController.openTeacherHomePage()}"/>
+        <h:commandButton value="Opprett student" action="#{viewController.openTeacherHomePage()}"/>
+    </p>
+    </div>
+    
+        </h:form>
+
+    </h:body>
+</html>
+
