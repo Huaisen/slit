@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Student overview</title>
+            <h:outputStylesheet library="css" name="kristianCSS.css" />
+
+    </h:head>
+    <h:body>
+        <form style="margin: 0px;float: right">
+            
+            <input type="submit" class="go_to_blog_button" value="Gå til blog" />
+        </form>
+        <table border="1" class="overview_table">
+            
+            
+            <tr>
+                <th>Modul 1</th>
+                <th>Modul 2</th>
+                <th>Modul 3</th>
+                <th>Modul 4</th>
+                <th>Modul 5</th>
+                <th>Modul 6</th>
+                <th>Modul 7</th>
+                <th>Modul 8</th>
+                <th>Modul 9</th>
+                <th>Modul 10</th>
+            </tr>
+            <tr style="height:20px">
+                <td style="background-color: greenyellow"></td>
+                <td style="background-color: greenyellow"></td>
+                <td style="background-color: orange"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            
+            </tr>
+        </table>
+        
+        <table border="1" class="assignments_status_table">
+            
+            
+            <tr>
+                <th>Status</th>
+                <th>Dato</th>
+                <th>Kommentar</th>
+
+            </tr>
+            <tr style="height:20px">
+
+                <td>Avventer godkjennelse</td>
+                <td>8. oktober 2014</td>
+                <td>Da er min innlevering klar</td>
+
+            </tr>
+        </table>
+        
+        
+        <div class="module_goals_and_files">
+        <div class="module_learning_goals_container">
+    
+            <p>Læringsmål</p>            
+        </div>
+        
+        <div class="module_files_container">
+            <ul>
+                
+                <li><a href="">BlueJ prosjekt</a></li>
+                <li><a href="">Video</a></li>
+   
+            </ul>
+            
+        </div>
+            <br></br>
+        </div>
+        <hr></hr>
+        <div class="file_upload_container">
+            
+            <form>
+                
+                <input type="file" />
+                <input type="submit" value="Last opp fil" />
+                
+                
+            </form>
+            
+            
+        </div>
+        
+        <form style="">   
+        <div class="comment_field_container">
+            <label for="comment_textarea">Kommentar til innlevering</label> 
+            <textarea rows="10" cols="90" id="comment_textarea" class="comment_textarea"></textarea>
+            
+        </div>
+            <div class="button_container">
+            <input type="button" value="Nullstil" />
+            <input type="submit" value="Lever inn" />
+            </div>
+        </form>
+        
+    </h:body>
+</html>
+

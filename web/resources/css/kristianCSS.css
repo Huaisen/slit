@@ -1,0 +1,81 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08-10-2014, 12:50:35
+    Author     : kristianandersson
+*/
+body{
+    
+
+}
+th{
+    
+}
+breaker{
+    
+    clear: both;
+}
+.overview_table{
+    
+    
+    margin-bottom: 50px;
+    clear: both;
+}
+.module_learning_goals_container{
+    
+    
+    width: 50%;
+    float: left; 
+}
+.module_files_container{
+  
+    clear: right;
+    
+}
+.module_goals_and_files{
+    
+    clear: both;
+    margin-bottom: 50px;
+    
+}
+.assignments_status_table{
+    
+    margin-bottom: 50px;
+}
+
+.module_learning_goals_container{
+    
+    float: left;
+    margin-bottom: 50px;
+}
+.file_upload_container{
+    width: 50%;
+    margin-bottom: 25px;
+   
+}
+
+.button_container{
+    
+    
+    float: right;
+}
+
+.comment_field_container{
+    
+    
+    width: 50%;
+}
+
+.comment_textarea{
+    
+    
+}
+    
+    .go_to_blog_button{
+        
+        
+        float: right;
+    }
