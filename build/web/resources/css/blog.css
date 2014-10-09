@@ -1,9 +1,10 @@
 h1 {
- text-align: center;
+ align: justify;
 }
 
 p {
-    text-align: center;
+    align: justify;
+    
 }
 #tekstboks {
   display: table;
@@ -30,12 +31,8 @@ button {
 
 
 #tid-1 {
-    margin-right: 340px;
-    margin-top: -330px;
-    float: right;
+    align: justify;
 }
 #tid-2 {
-    margin-right: 340px;
-    margin-top: -150px;
-    float: right;
+     align: justify;
 }
