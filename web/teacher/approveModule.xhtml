@@ -1,24 +1,32 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>Student overview</title>
             <h:outputStylesheet library="css" name="kristianCSS.css" />
 
     </h:head>
     <h:body>
-        <form>
-            
-            <input type="submit" class="go_to_blog_button" value="Gå til blog" />
+        
+      <ui:composition template="/templates/masterlayout.xhtml">
+      <ui:define name="content">
+       
+
+        
+        
+        <h:form>
+
+                      <h:link value="Gå til blog" outcome="readBlog" />
          
         
-        <table class="table table-striped table-header-rotated">
+        <table class="overview_table table-header-rotated">
     <thead>
       <tr>
         <!-- First column header is not rotated -->
         <!-- Following headers are rotated -->
-        <th></th>
         <th class="rotate-45"><div><span>Modul 1</span></div></th>
         <th class="rotate-45"><div><span>Modul 2</span></div></th>
         <th class="rotate-45"><div><span>Modul 3</span></div></th>
@@ -36,7 +44,6 @@
     </thead>
     <tbody>
       <tr>
-          <td>Student navn</td>
         <td class="row-result finished_module"></td>
         <td class="finished_module"></td>
         <td class="awaiting_approval"></td>
@@ -62,7 +69,7 @@
         
         <div class="module_files_container">
             
-            <input type="button" value="Modul info" />
+                      <h:link value="Modul info" outcome="createModule" />
             
         </div>
             <br></br>
@@ -107,8 +114,9 @@ Deadline
             <input type="button" value="Avvis" />
             <input type="submit" value="Godkjenn" />
             </div>
-        </form>
-        
+        </h:form>
+            </ui:define>
+    </ui:composition>  
     </h:body>
 </html>
 

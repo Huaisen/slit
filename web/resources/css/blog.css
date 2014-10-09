@@ -14,7 +14,6 @@ p {
 
 #tekstboks2 {
   display: table;
-  margin-left:285px;
   margin-right:auto;
   
 }
@@ -23,12 +22,10 @@ p {
  display: inline-block;
   margin-right: 0 auto;
   width: 100%;
-   margin-left:285px;
 }
 
 button {
     float: right;
-    margin-top: 105px;
 }
 
 
