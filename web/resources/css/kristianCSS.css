@@ -84,7 +84,6 @@ breaker{
     
     float: left;
     width: 50%;
-    background-color: red;
     
 }
 
@@ -120,6 +119,12 @@ table{
 }
 
 /* --- */
+
+.overview_table{
+    
+    margin-bottom: 40px;
+    
+}
 .table-header-rotated th.row-header{
   width: auto;
 }
@@ -141,9 +146,15 @@ table{
   position: relative;
   vertical-align: bottom;
   padding: 0;
-  line-height: 1.2  ;
+  line-height: 1.2;
+  
 }
-
+.table-header-rotated th.rotate-45 > div:hover{
+    
+    background-color: lightgoldenrodyellow;
+    cursor: pointer;
+    
+}
 .table-header-rotated th.rotate-45 > div{
   position: relative;
   top: 0px;
@@ -158,6 +169,8 @@ table{
   border-left: 1px solid #dddddd;
   border-right: 1px solid #dddddd;
   border-top: 1px solid #dddddd;
+  
+  
 }
 
 .table-header-rotated th.rotate-45 span {
@@ -202,5 +215,5 @@ table{
 
 .module_inactive{
     
-    background-color: grey;
+    background-color: lightgray;
 }

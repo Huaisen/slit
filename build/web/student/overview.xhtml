@@ -3,44 +3,51 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>Student overview</title>
+        <title>Approve module</title>
             <h:outputStylesheet library="css" name="kristianCSS.css" />
 
     </h:head>
     <h:body>
-        <form style="margin: 0px;float: right">
+        <form>
             
             <input type="submit" class="go_to_blog_button" value="Gå til blog" />
-        </form>
-        <table border="1" class="overview_table">
-            
-            
-            <tr>
-                <th>Modul 1</th>
-                <th>Modul 2</th>
-                <th>Modul 3</th>
-                <th>Modul 4</th>
-                <th>Modul 5</th>
-                <th>Modul 6</th>
-                <th>Modul 7</th>
-                <th>Modul 8</th>
-                <th>Modul 9</th>
-                <th>Modul 10</th>
-            </tr>
-            <tr style="height:20px">
-                <td style="background-color: greenyellow"></td>
-                <td style="background-color: greenyellow"></td>
-                <td style="background-color: orange"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            
-            </tr>
-        </table>
+        <table class="overview_table table-header-rotated">
+    <thead>
+      <tr>
+        <!-- First column header is not rotated -->
+        <!-- Following headers are rotated -->
+        <th class="rotate-45"><div><span>Modul 1</span></div></th>
+        <th class="rotate-45"><div><span>Modul 2</span></div></th>
+        <th class="rotate-45"><div><span>Modul 3</span></div></th>
+        <th class="rotate-45"><div><span>Modul 4</span></div></th>
+        <th class="rotate-45"><div><span>Modul 5</span></div></th>
+        <th class="rotate-45"><div><span>Modul 6</span></div></th>
+        <th class="rotate-45"><div><span>Modul 7</span></div></th>
+        <th class="rotate-45"><div><span>Modul 8</span></div></th>
+        <th class="rotate-45"><div><span>Modul 9</span></div></th>
+        <th class="rotate-45"><div><span>Modul 10</span></div></th>
+
+
+      </tr>
+        
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-result finished_module"></td>
+        <td class="finished_module"></td>
+        <td class="awaiting_approval"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="module_inactive"></td>
+        <td class="module_inactive"></td>
+      </tr>
+
+  
+    </tbody>
+  </table>
         
         <table border="1" class="assignments_status_table">
             
@@ -81,18 +88,15 @@
         <hr></hr>
         <div class="file_upload_container">
             
-            <form>
                 
                 <input type="file" />
                 <input type="submit" value="Last opp fil" />
                 
                 
-            </form>
             
             
         </div>
         
-        <form style="">   
         <div class="comment_field_container">
             <label for="comment_textarea">Kommentar til innlevering</label> 
             <textarea rows="10" cols="90" id="comment_textarea" class="comment_textarea"></textarea>
