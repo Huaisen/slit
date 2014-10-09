@@ -1,0 +1,44 @@
+h1 {
+ text-align: center;
+}
+
+p {
+    text-align: center;
+}
+#tekstboks {
+  display: table;
+  margin-left:auto;
+  margin-right:auto;
+  
+}
+
+#tekstboks2 {
+  display: table;
+  margin-left:285px;
+  margin-right:auto;
+  
+}
+
+#tekstboks3 {
+ display: inline-block;
+  margin-right: 0 auto;
+  width: 100%;
+   margin-left:285px;
+}
+
+button {
+    float: right;
+    margin-top: 105px;
+}
+
+
+#tid-1 {
+    margin-right: 340px;
+    margin-top: -330px;
+    float: right;
+}
+#tid-2 {
+    margin-right: 340px;
+    margin-top: -150px;
+    float: right;
+}
