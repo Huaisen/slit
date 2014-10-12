@@ -46,9 +46,15 @@
               &nbsp;
               <h:commandButton value="Cancel" immediate="true"
                                action="index"/>
+              
+              
+            <h:commandButton action="#{authBean.saveSelectedUser()}"  value="#{uistrings.delete} user #{authBean.selectedUser.username}"/>
             </h:panelGroup>
           </h:panelGrid>
         </h:form>
+        
+        <h:form><h:commandLink action="#{authBean.saveSelectedUser()}"
+                                           value="#{uistrings.delete} user #{authBean.selectedUser.username}"/></h:form>
       </ui:define>
 
       <ui:define name="menuitems">

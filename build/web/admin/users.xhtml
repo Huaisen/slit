@@ -27,6 +27,10 @@
             </h:form>
           </h:column>
         </h:dataTable>
+        <h:form>
+        <h:commandButton action="#{authBean.editNewUser()}" value="#{uistrings.create_user}" />
+        </h:form>
+
       </ui:define>
 
       <ui:define name="menuitems">

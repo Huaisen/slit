@@ -1,16 +1,21 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
    
     <h:head>
         <title>Blogg</title>
         
-   <h:outputStylesheet name="blog.css" library="css" />
     
+    <h:outputStylesheet name="opprettplan.css" library="css" />
+
     </h:head>
+    <h:body>
+      <ui:composition template="/templates/masterlayout.xhtml">
+
+          <ui:define name="content">
     
-    <body>
     <h1> Blogg </h1>
 
     <p> Skriv litt i bloggen din her:</p>
@@ -41,6 +46,10 @@
         <div id="tid-2" >
          <time>19.53, 1 Januar 2015</time>
         </div>
-    </body>
+        
+        </ui:define>
+          
+      </ui:composition>
+    </h:body>
 </html>
 
