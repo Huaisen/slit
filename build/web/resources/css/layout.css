@@ -15,7 +15,7 @@ div.layout-header {
 /* column container */
 div.layout-outer {
   clear:both;
-  overflow:hidden; /* This chops off any overhanging divs */
+  overflow:auto; /* This chops off any overhanging divs */
 }
 /* common column settings */
 .layout-outer, .layout-inner {
@@ -28,7 +28,7 @@ div.layout-outer {
   float:left;
   position:relative;
   padding:0 0 1em 0;
-  overflow:hidden;
+  overflow:auto;
 }
 .layout-outer .layout-inner {
   right:75%;      /* right column width */
