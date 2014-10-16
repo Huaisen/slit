@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>Opprett Modul/Rediger</title>
             <h:outputStylesheet library="css" name="kristianCSS.css" />
@@ -12,100 +13,74 @@
     <h:body>
       <ui:composition template="/templates/masterlayout.xhtml">
       <ui:define name="content">
-
-  
           
-          <h:dataTable value="#{kristianBean.getModules()}" var="module" styleClass="data">
-          <h:column>
-            <f:facet name="header">id</f:facet>
-            #{module.id}
-          </h:column>
-          <h:column>
-            <f:facet name="header">Learning objectives</f:facet>
-            #{module.learningObjectives}
-          </h:column>
-          <h:column>
-            <f:facet name="header">Evaluation criterias</f:facet>
-                        #{module.approvalCriterias}
+          <h:form>
+              
+              
+          </h:form>
+          <h:form>
+      <h:button outcome="blog" styleClass="go_to_blog_button" value="Gå til blog" />
 
-          </h:column>
-          <h:column>
-            <f:facet name="header">Deadline</f:facet>
-                                    #{module.deadline}
-
-          </h:column>
-        </h:dataTable>
-          
-        <form>
-            
-            <input type="submit" class="go_to_blog_button" value="Gå til blog" />
-        <table class="overview_table table-header-rotated">
-    <thead>
-      <tr>
-        <!-- First column header is not rotated -->
-        <!-- Following headers are rotated -->
-        <th class="rotate-45"><div><span>Modul 1</span></div></th>
-        <th class="rotate-45"><div><span>Modul 2</span></div></th>
-        <th class="rotate-45"><div><span>Modul 3</span></div></th>
-        <th class="rotate-45"><div><span>Modul 4</span></div></th>
-        <th class="rotate-45"><div><span>Modul 5</span></div></th>
-        <th class="rotate-45"><div><span>Modul 6</span></div></th>
-        <th class="rotate-45"><div><span>Modul 7</span></div></th>
-        <th class="rotate-45"><div><span>Modul 8</span></div></th>
-        <th class="rotate-45"><div><span>Modul 9</span></div></th>
-        <th class="rotate-45"><div><span>Modul 10</span></div></th>
-
-
-      </tr>
         
-    </thead>
-    <tbody>
-      <tr>
-        <td class="row-result finished_module"></td>
-        <td class="finished_module"></td>
-        <td class="awaiting_approval"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="module_inactive"></td>
-        <td class="module_inactive"></td>
-      </tr>
-
-  
-    </tbody>
-  </table>
+            <table class="overview_table table-header-rotated">
+                <tr>
+                    <th></th>
+                    <c:forEach items="#{kristianBean.getModules()}" var="module" >
+                        <th class="rotate-45"><div>
         
-        <table border="1" class="assignments_status_table">
-            
-            
-            <tr>
-                <th>Status</th>
-                <th>Dato</th>
-                <th>Kommentar</th>
+                        <h:commandLink value="" action="#{kristianBean.showOverview(module.id)}" >
+                        <h:outputText>
+                        <span>#{module.name}</span>
+                        </h:outputText>
+                        </h:commandLink>
+                        </div></th>
+      
+                    </c:forEach>
 
-            </tr>
-            <tr style="height:20px">
+                </tr>
+        
+        
+        
+            <ui:repeat value="#{kristianBean.getStudent()}" var="student">
+                <tr>
+                    <td>#{student.username}</td>
+                    <ui:repeat value="#{kristianBean.getModulesStatus()}" var="status">
 
-                <td>Avventer godkjennelse</td>
-                <td>8. oktober 2014</td>
-                <td>Da er min innlevering klar</td>
+                    <td class="#{status}"></td>
+      
+                    </ui:repeat>
+                    </tr>
+            </ui:repeat>
+ 
+            </table>
+       
+            <table border="1" class="assignments_status_table">
+                <tr>
+                    <th>Status</th>
+                    <th>Dato</th>
+                    <th>Kommentar</th>
 
-            </tr>
-        </table>
+                </tr>
+                <tr style="height:20px">
+
+                    <td>Avventer godkjennelse</td>
+                    <td>8. oktober 2014</td>
+                    <td>Da er min innlevering klar</td>
+
+                </tr>
+            </table>
         
         
         <div class="module_goals_and_files">
         <div class="module_learning_goals_container">
     
-            <p>Læringsmål</p>            
+            <p>#{kristianBean.getSelectedModule().getDescription()}</p>            
         </div>
         
         <div class="module_files_container">
             <ul>
                 
-                <li><a href="">BlueJ prosjekt</a></li>
+                <li><a href="">Blue prosjekt</a></li>
                 <li><a href="">Video</a></li>
    
             </ul>
@@ -134,7 +109,9 @@
             <input type="button" value="Nullstil" />
             <input type="submit" value="Lever inn" />
             </div>
-        </form>
+        </h:form>
+     
+    
     </ui:define>
     </ui:composition> 
     </h:body>

@@ -6,18 +6,31 @@
 package no.uia.slit.kristian;
 
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  *
  * @author kristianandersson
  */
-public class ModuleKA {
-  
-    private Integer id;
+@Entity
+    public class ModuleKA {
+   @Id @GeneratedValue
+   private long id;
+   @Column(unique=true)
     private String learningObjectives;
     private String approvalCriterias;
     private String deadline;
     
+    
+    
+    public ModuleKA(){
+        
+        
+    }
+    /*
     public ModuleKA(Integer id,String learningObj, String approvalCrit,String deadline){
         
         this.id = id;
@@ -28,14 +41,14 @@ public class ModuleKA {
         
         
     }
-   
+   */
  
     
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 

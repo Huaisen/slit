@@ -27,7 +27,20 @@ public class PlanItem {
    
    @Temporal(TemporalType.DATE)
    private Date plannedDate;
+  
+   /* Student inserted by Kristian */
+   private Student student;
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
    
+   
+    
    public PlanItem() {
    }
 

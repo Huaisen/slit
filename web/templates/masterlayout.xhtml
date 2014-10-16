@@ -23,6 +23,10 @@
     <div class="layout-header">
 <!--      <h1>#{uistrings.app_name}</h1> -->
       <h2>#{debugBean.userName}</h2>
+      
+      <h:form rendered="#{authInfoBean.isLoggedIn()}">
+                <h:commandLink action="#{authInfoBean.logout()}" value="#{uistrings.logout}"/>
+              </h:form>
     </div>
 
     <div class="layout-outer">

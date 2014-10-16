@@ -11,11 +11,12 @@ public enum Page {
     home("/index"),
     teacher("/teacher/index"),
     modules,
-    module,
+    module("teacher/createModule"),
 
     admin("/admin/index"),
     users,
-    user
+    user,
+    student("/student/overview")
     ;
 
     String url;

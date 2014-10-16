@@ -21,6 +21,7 @@
         <f:facet name="header">CV</f:facet>
         <h:form rendered="#{! (empty t.cv)}">
           <h:commandLink value='Download CV' action='#{downloadBean.downloadFile(t.cv.id)}'/>
+          
         </h:form>
       </h:column>
     </h:dataTable>

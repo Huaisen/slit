@@ -4,6 +4,7 @@
  */
 package no.uia.slit.auth;
 
+import java.util.Set;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -42,6 +43,37 @@ public class AuthInfoBean {
             }
         }
         return "Not logged in!";
+    }
+    
+        public String getHighestUserGroup() {
+        String userName = JsfUtils.getUserName();
+        String HighestUserGroup = "student";
+
+        if (null != userName && !(userName.equals(""))) {
+            AuthUser user = authDb.findUser(userName);
+            if (null != user) {
+                
+                
+                for (AuthGroup g : user.getGroups()) {
+                    switch (g.name()) {
+                        case "admin":
+                            return g.name();
+                        case "teacher":
+                            HighestUserGroup = g.name();
+                            break;
+                        case "student":
+                            if(!HighestUserGroup.equals("teacher")){
+                            HighestUserGroup = g.name();
+                            }
+                            break;     
+                    }
+         
+                }
+            }
+        }
+        System.out.println("High is: " + HighestUserGroup);
+        return "teacher";
+
     }
 
 }

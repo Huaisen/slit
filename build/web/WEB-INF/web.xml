@@ -95,6 +95,24 @@ unchanged, for the rest of the course -->
   <!-- This is a security restriction. To access the pages in the admin
   folder, the user must have the admin role (which is the same
   thing as belonging to the admin group -->
+  
+  <!-- This part was added to make a login redirect dependen on the user group - KA -->
+    <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Index</web-resource-name>
+      <url-pattern>/index.xhtml</url-pattern>
+      <http-method>GET</http-method>
+      <http-method>POST</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin</role-name>
+      <role-name>student</role-name>
+      <role-name>teacher</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <!-- END -->
+  
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>Admin pages</web-resource-name>

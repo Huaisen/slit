@@ -14,8 +14,7 @@ import no.uia.slit.entity.Teacher;
  * @author evenal
  */
 @Stateless
-public class TeacherPersister
-        extends AbstractPersister<Teacher> {
+public class TeacherPersister extends AbstractPersister<Teacher> {
 
     @PersistenceContext
     EntityManager em;

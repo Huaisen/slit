@@ -8,6 +8,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author even
  */
+@Named("jsfUtils")
 public class JsfUtils {
 
     /**

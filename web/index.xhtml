@@ -5,13 +5,22 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
   <h:head>
+      <f:metadata>
+          
+       <!--<f:event type="preRenderView" rendered="#{authInfoBean.loggedIn}" listener="#{bean.check()}" />-->
+
+</f:metadata>
     <title>Facelet Title</title>
     <h:outputStylesheet name="layout.css" library="css" />
     <h:outputStylesheet name="format.css" library="css" />
   </h:head>
   <h:body>
+
     <ui:composition template="/templates/masterlayout.xhtml">
       <ui:define name="content">
+                <h2>#{debugBean.userName}</h2>
+
+
         <h2>#{uistrings.welcome}</h2>
         <p>#{uistrings.intro}</p>
         <p>#{uistrings.guide}</p>
@@ -43,9 +52,21 @@
       </ui:define>
 
       <ui:define name="menuitems">
+          
           <li><h:link value="#{uistrings.student_pages}" outcome="student/index"/></li>
           <li><h:link value="#{uistrings.teacher_pages}" outcome="teacher/index"/></li>
           <li><h:link value="#{uistrings.admin_pages}" outcome="admin/index"/></li>
+          <li><h:link value="Student start" outcome="student/overview"/></li>
+          <li><h:link value="Teacher start" outcome="teacher/MainTeacherView"/></li>
+          <h:form>
+          <li><h:commandLink value="Student start - with Module selection" action="#{kristianBean.showOverview(2)}"/></li>
+          
+
+          </h:form>  
+          
+          <h:form>
+<h:commandLink value="Hello" action="#{moduleKABean.createModule()}" />
+          </h:form>
       </ui:define>
 
     </ui:composition>
