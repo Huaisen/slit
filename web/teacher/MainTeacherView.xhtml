@@ -3,58 +3,116 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      >
-    
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+   
     <h:head>
-        
         <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="sondreCSS.css" />
     </h:head>
+   
     <h:body>
     <ui:composition template="/templates/masterlayout.xhtml">
       <ui:define name="content">
         <h2>#{uistrings.modules}</h2>
-        <h3>#{uistrings.module_list_header}</h3>
-        <h:dataTable styleClass="data" value="" var="m">
-            
-            <h:column>
-              <f:facet name="header">Studenter
-            </f:facet>
-              <table>
+        <h3 align="center">#{uistrings.module_list_header}</h3>
+        
+               
+           
+        <table class = "studenttable"
+               cellspacing="10" cellpadding="15" >  
+            <tr style="height:20px">
+                <th></th>
+                <th>Studentnavn</th>
+                <h:link></h:link>
+                
+              <ui:repeat value="#{sondrebean.Student()}" var="nasp" >
                   
-                <tr><td>
-                  Y
-              </td></tr>
-              <tr><td>
-                  Y
-              </td></tr>
-              <tr><td>
-                  Y
-              </td></tr>
-              </table>
-          </h:column>
+                  <th colspan="1">#{nasp.id}</th>
+                  
+                  
+              </ui:repeat>
+              
             
+            </tr>
+            
+             
+                
+                <ui:repeat value="#{sondrebean.Student()}" var="krisp" >
+                    <tr style="height:20px" id="studnavn" >
+                  
+                        
+                        <th></th>
+                        <th >#{krisp.studName} </th>
+                           
+                    <td style="background-color: greenyellow"  >        
+                        
+                    </td>
+                        
+                    <td style="background-color: greenyellow">        
+                
+                    </td>
+             
+                    <td style="background-color: red">        
+                  
+                    </td>
+                        
+                        <td style="background-color: gray">       
+                    
+                    </td>
+                        
+                        <td style="background-color: gray">        
+                     
+                    </td>
+                        
+                        <td style="background-color: gray">        
+                     
+                    </td>
+                        
+                        <td style="background-color: gray">        
+                     
+                    </td>
+                        
+                        <td style="background-color: gray">        
+                     
+                    </td>
+                        
+                        <td style="background-color: gray">        
+                     
+                    </td>
+                        
+                        <td style="background-color: gray">        
+                    
+                    </td>
+                        
+                    </tr>
+                </ui:repeat>
+            
+            
+             
+            
+        </table>
+            <!--
           <h:column>
               <f:facet name="header">Module1
             </f:facet>
               <table class="module1_table">
             
-                <tr style="height:20px"><td style="background-color: greenyellow">
+                <tr style="height:20px"><td style="background-color: greenyellow"> X
                   
               </td></tr>
-              <tr style="height:20px"><td style="background-color: greenyellow">
+              <tr style="height:20px"><td style="background-color: greenyellow"> X
                   
               </td></tr>
-              <tr style="height:20px"><td style="background-color: greenyellow">
+              <tr style="height:20px"><td style="background-color: greenyellow"> X
                   
               </td></tr>
-              </table>
+              </table> slett alle table?
           </h:column>
              
             <h:column>
               <f:facet name="header">Module2
             </f:facet>
-                <table>
+                <table class ="module2_table">
            
               <tr><td>
                   X
@@ -157,10 +215,7 @@
                   X
               </td></tr>
               </table></h:column>
-           
-        </h:dataTable>
-       
-        
+           -->
         
         
         

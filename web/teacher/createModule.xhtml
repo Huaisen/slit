@@ -2,9 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:t="http://myfaces.apache.org/tomahawk">
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>Opprett Modul/Rediger</title>
             <h:outputStylesheet library="css" name="createModule.css" />
@@ -13,44 +11,36 @@
     <h:body>
       <ui:composition template="/templates/masterlayout.xhtml">
       <ui:define name="content">
-          <h:form>
-              
-        <h3>Modulnavn</h3>  
-        <!--<h:inputText value="#{moduleBean.getSelectedModule().name}"></h:inputText> -->
-
-        
-        <h3>Læringsmål</h3>
-        <h:inputTextarea rows="20" cols="80" value="">
-        </h:inputTextarea>
-        
-        <h3>Godkjennings Kriterier</h3>
-        
-        <h:inputTextarea rows="10" cols="80" value="">
-        </h:inputTextarea>
-  <!--
-        <h3>Filer til modul</h3>
+        <h2>Læringsmål</h2>
+        <textarea rows="20" cols="40" name="feedback" action="#{minhBean}">
+        Her kommer en beskrivelse av læringsmåletttt. 
+        </textarea> 
         <div class="file_container">
-        <h:form enctype="multipart/form-data">
-          <t:inputFileUpload label="Select File" value=""/>
-          <br/>
-          <h:commandButton value="Upload File" action="#"/>
-        </h:form>       
+        <form enctype="multipart/form-data" action="upload" method="POST">
+            Lastet opp en fil: <input name="file" type="file" />
+            <input type="submit" value="Last opp"/>
+        </form>        
         </div>
-    -->    
+        <h2>Godkjennings Kriterier</h2>
+        <textarea rows="10" cols="30">
+        Her kommer en beskrivelse om Godkjennings Kriterier. 
+        </textarea>
+        
         <h3>Deadline</h3>
-        <h:inputText></h:inputText> 
-        <h:selectManyCheckbox>
-               <f:selectItem itemValue="Obligatorisk" itemLabel="Obligatorisk" />
-
-        </h:selectManyCheckbox>
-
-        <h:commandButton value="Annuller" action="#{createBean.epost}"/>   
-        <h:commandButton value="Opprett" action="#{moduleBean.saveModule()}"/>
+        <textarea rows="5" cols="20">
         
+        </textarea>
+        <p> <input type="submit" name="Annuller" value="Annuller" action="#{createBean.epost}"/>   
+            <input type="submit" name="opprett" value="Opprett" action="#{minhBean.createModule}"/>
+        </p>
+        <form>
             <div align="left"><br/>
+              <input type="checkbox" name="obligatorisk" value="måtas"/> Må tas<br/>
             </div>
+        </form>
         
-        </h:form>
+
+
                
 </ui:define>
     </ui:composition>  
