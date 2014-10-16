@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/sondre/SLITPROSJEKT/web/student/index.xhtml</file>
-            <file>file:/Users/sondre/SLITPROSJEKT/web/teacher/MainTeacherView.xhtml</file>
-            <file>file:/Users/sondre/SLITPROSJEKT/web/templates/masterlayout.xhtml</file>
-            <file>file:/Users/sondre/SLITPROSJEKT/web/student/overview.xhtml</file>
+            <file>file:/C:/Users/MinhNguyenDinh/Documents/TheOne/slit/web/teacher/createModule.xhtml</file>
+            <file>file:/C:/Users/MinhNguyenDinh/Documents/TheOne/slit/src/java/no/uia/slit/minh/minhBean.java</file>
+            <file>file:/C:/Users/MinhNguyenDinh/Documents/TheOne/slit/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/MinhNguyenDinh/Documents/TheOne/slit/src/java/no/uia/slit/minh/TeacherModule.java</file>
         </group>
     </open-files>
 </project-private>

@@ -12,8 +12,8 @@
       <ui:composition template="/templates/masterlayout.xhtml">
       <ui:define name="content">
         <h2>Læringsmål</h2>
-        <textarea rows="20" cols="40">
-        Her kommer en beskrivelse av læringsmålet. 
+        <textarea rows="20" cols="40" name="feedback" action="#{minhBean}">
+        Her kommer en beskrivelse av læringsmåletttt. 
         </textarea> 
         <div class="file_container">
         <form enctype="multipart/form-data" action="upload" method="POST">
@@ -31,13 +31,16 @@
         
         </textarea>
         <p> <input type="submit" name="Annuller" value="Annuller" action="#{createBean.epost}"/>   
-            <input type="submit" name="opprett" value="Opprett" action="#{createBean.epost}"/>
+            <input type="submit" name="opprett" value="Opprett" action="#{minhBean.createModule}"/>
         </p>
         <form>
             <div align="left"><br/>
               <input type="checkbox" name="obligatorisk" value="måtas"/> Må tas<br/>
             </div>
         </form>
+        
+
+
                
 </ui:define>
     </ui:composition>  
