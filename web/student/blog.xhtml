@@ -18,38 +18,13 @@
     
     <h1> Blogg </h1>
 
-    <p> Skriv litt i bloggen din her:</p>
-    <div id="tekstboks" >
-   <textarea cols="100" rows="8" name="skriv">
-   </textarea>
-    
-     <button type="button" onclick="alert('Du har sendt inn!')">Send</button>
-    </div>
-    
-    <p> Eldre innlegg:</p>
-    <div id="tekstboks2" >
-   <textarea cols="100" rows="8" name="skriv">
-   </textarea>
-    </div>
-    
-    
-        <p> Eldre innlegg:</p>
-    <div id="tekstboks3" >
-   <textarea cols="100" rows="8" name="skriv">
-   </textarea>
-    </div>
-
-            <div id="tid-1" >
-        <time>17.12, 23 Januar 2015</time>
-            </div>
-        
-        <div id="tid-2" >
-         <time>19.53, 1 Januar 2015</time>
-        </div>
-        
-        </ui:define>
-          
-      </ui:composition>
-    </h:body>
+        <p> Min Blog:</p>
+       <ui:repeat value="#{blogBean.getBlogs()}" var="entry">
+           <p>#{entry.calendar}</p>
+           <textarea cols="100" rows="8" name="skriv">#{entry.blog}</textarea>
+            </ui:repeat>
+          </ui:define>
+           </ui:composition>
+     </h:body>
 </html>
 
