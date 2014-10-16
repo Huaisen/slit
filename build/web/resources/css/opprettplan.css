@@ -6,6 +6,13 @@ table, th, td {
 }
 */
 
+
+#tabell *{
+    
+    border: 1px solid black;
+    text-align: center;
+
+}
 button {
     float: right;
 }

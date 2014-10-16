@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+  <h:head>
+    <title>Opprett Plan</title>
+  </h:head>
+  <h:body>
+      
+            <ui:composition template="/templates/masterlayout.xhtml">
+
+          <ui:define name="content">
+              
+    <div class="layout-header">
+      <h1>Ny Plan</h1>
+    </div>
+
+              
+        
+
+    <h:dataTable value="#{simonBean.getPlan()}" var="test" styleClass="data">
+        
+    <h:column>
+        <f:facet name="header">Student</f:facet>
+            #{test.studentID}
+    </h:column>
+
+    <h:column>
+            <f:facet name="header">Modul</f:facet>
+                #{test.moduleID}
+    </h:column>
+        
+        
+    <h:column>
+            <f:facet name="header">Dato Opprettet</f:facet>
+                #{test.planEntryDate}
+    </h:column>
+    
+        
+    <h:column>
+            <f:facet name="header">Deadline Modul</f:facet>
+                #{test.moduleDeadline}
+    </h:column>    
+        
+        
+    <h:column>
+            <f:facet name="header">Forventet Levering</f:facet>
+                #{test.expectedDelivery}
+    </h:column>    
+    
+  
+        
+    <h:column>
+            <f:facet name="header">Dato mellom moduler</f:facet>
+                #{test.deadlineExpectedDeliveryDiff}
+    </h:column>
+        
+
+
+        
+
+        
+
+    
+    </h:dataTable>
+              
+              
+
+              
+              
+              
+              
+              
+              
+<button type="button" onclick="alert('Du har annulert!')">Annuler</button>
+<button type="button" onclick="alert('Din plan er opprettet!')">Opprett</button>
+
+               </ui:define>
+                 </ui:composition>
+              
+              
+  </h:body>
+</html>
