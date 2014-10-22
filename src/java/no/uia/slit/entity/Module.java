@@ -4,6 +4,8 @@
  */
 package no.uia.slit.entity;
 
+import java.util.ArrayList;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +25,16 @@ public class Module {
    private String description;
    @ManyToOne
    private Module requiredModule;
+   
+   private Date deadline;
+
+    public Date getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
+    }
    
    public Module() {
    }
@@ -57,6 +69,26 @@ public class Module {
 
    public void setRequiredModule(Module requiredModule) {
       this.requiredModule = requiredModule;
+   }
+   
+    public ArrayList<ModuleFile> getFiles(){
+      
+ 
+       ArrayList<ModuleFile> files = new ArrayList();
+       
+       
+       ModuleFile moduleFile = new ModuleFile();
+       moduleFile.setFilename("Test file 1");
+       moduleFile.setModule(this);
+       files.add(moduleFile);
+       
+       moduleFile = new ModuleFile();
+       moduleFile.setFilename("Test file 2");
+       moduleFile.setModule(this);       
+       files.add(moduleFile);
+       
+       return files;
+       
    }
 
    @Override
