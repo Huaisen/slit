@@ -7,6 +7,7 @@ package no.uia.slit.kristian;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -56,6 +57,10 @@ public class KristianBean implements Serializable {
     
   public ArrayList<Module> getModules(){
       
+      Calendar calendar = Calendar.getInstance();
+      
+      
+
       modules = new ArrayList<>();
       /* Dummy data. Should be replaced with call to DB */
       
@@ -72,10 +77,12 @@ public class KristianBean implements Serializable {
       module1.setId(1);
       modules.add(module1);
       
+      calendar.set(2015, 3, 14);
       Module module2 = new Module();
       module2.setName("Modul 2");
       module2.setDescription("Dette er læringsmål for modul 2");
       module2.setId(2);
+      module2.setDeadline(calendar.getTime());
       modules.add(module2);
       
       Module module3 = new Module();
@@ -84,10 +91,14 @@ public class KristianBean implements Serializable {
       module3.setId(3);
       modules.add(module3);
       
+      calendar.set(2015, 5, 7);
+
       Module module4 = new Module();
       module4.setName("Modul 4");
       module4.setId(4);
+      module4.setDeadline(calendar.getTime());
       modules.add(module4);
+      
       
       Module module5 = new Module();
       module5.setName("Modul 5");
