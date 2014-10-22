@@ -7,9 +7,6 @@
     <h:head>
         <title>Blogg</title>
         
-    
-    <h:outputStylesheet name="opprettplan.css" library="css" />
-
     </h:head>
     <h:body>
       <ui:composition template="/templates/masterlayout.xhtml">
@@ -17,14 +14,28 @@
           <ui:define name="content">
     
     <h1> Blogg </h1>
+      <h:form id="blogForm">
+       
+       <div>
+            <h3 for="blog">Skriv i din blog</h3> 
+            <h:inputTextarea rows="10" cols="90" id="comment_textarea" value="#{blogBean.blogText}" ></h:inputTextarea>
+            <br></br> 
+          
+            <h:commandButton  id="submit" action="#{blogBean.submitBlogEntry()}" ></h:commandButton>>
+             
 
-        <p> Min Blog:</p>
+             <h:message for="submit" />
+         </div>
+        
+        
        <ui:repeat value="#{blogBean.getBlogs()}" var="entry">
-           <p>#{entry.calendar}</p>
-           <textarea cols="100" rows="8" name="skriv">#{entry.blog}</textarea>
-            </ui:repeat>
+           <p>#{entry.calendar}</p> 
+           <p>#{entry.blogText}</p>
+           <br></br>
+        </ui:repeat>
+
+            </h:form>
           </ui:define>
            </ui:composition>
      </h:body>
 </html>
-
