@@ -6,6 +6,7 @@ package no.uia.slit.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -28,6 +29,10 @@ public class Assessment implements Serializable {
    private Date assessmentDate;
    private boolean achievedLearningGoals; // true means the student passed
    private String teachersComment;
+   
+   private PlanEntry planEntry; //Added by Team Reunion
+   private String status; //Added by Team Reunion - Might be swapped with achievedLearningGoals
+
 
    public Assessment() {
    }
@@ -78,6 +83,27 @@ public class Assessment implements Serializable {
 
    public void setTeachersComment(String comment) {
       this.teachersComment = comment;
+   }
+   
+   //Test function for returning files
+   public ArrayList<AssessmentFile> getFiles(){
+      
+ 
+       ArrayList<AssessmentFile> files = new ArrayList();
+       
+       
+       AssessmentFile assessmentFile = new AssessmentFile();
+       assessmentFile.setFilename("Test file 1");
+       assessmentFile.setAssessment(this);
+       files.add(assessmentFile);
+       
+       assessmentFile = new AssessmentFile();
+       assessmentFile.setFilename("Test file 2");
+       assessmentFile.setAssessment(this);       
+       files.add(assessmentFile);
+       
+       return files;
+       
    }
 
    @Override

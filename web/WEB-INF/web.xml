@@ -97,6 +97,7 @@ unchanged, for the rest of the course -->
   thing as belonging to the admin group -->
   
   <!-- This part was added to make a login redirect dependen on the user group - KA -->
+  <!--
     <security-constraint>
     <web-resource-collection>
       <web-resource-name>Index</web-resource-name>
@@ -110,7 +111,7 @@ unchanged, for the rest of the course -->
       <role-name>teacher</role-name>
     </auth-constraint>
   </security-constraint>
-  
+  -->
   <!-- END -->
   
   <security-constraint>

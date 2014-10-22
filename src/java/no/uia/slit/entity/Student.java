@@ -4,11 +4,14 @@
  */
 package no.uia.slit.entity;
 
+import java.util.ArrayList;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import no.uia.slit.web.ModuleBean;
 
 /**
  *
@@ -23,6 +26,8 @@ public class Student {
 
    @Column(unique=true)
    private String username;
+   
+   private String email; //Added by Team Reunion 
 
    public Student() {
    }
@@ -42,6 +47,7 @@ public class Student {
    public void setUsername(String username) {
       this.username = username;
    }
+   
 
    @Override
    public int hashCode() {

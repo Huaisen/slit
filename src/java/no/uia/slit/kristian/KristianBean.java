@@ -11,8 +11,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import no.uia.slit.entity.Assessment;
 import no.uia.slit.entity.Module;
@@ -27,8 +28,8 @@ import no.uia.slit.web.Page;
  */
 
 @Named("kristianBean")
-@RequestScoped
-public class KristianBean implements Serializable {
+@SessionScoped
+        public class KristianBean implements Serializable {
    
     
     private ArrayList<Module> modules;
@@ -186,10 +187,7 @@ public class KristianBean implements Serializable {
   public ArrayList<PlanItem> getAllPlanItems(){
       
       ArrayList <PlanItem> planEntries = new ArrayList();
-      
-      
-      
-      
+
       PlanItem planItem = new PlanItem();
       planItem.setId(1);
       planItem.setModule(getModuleById(1));
@@ -215,6 +213,8 @@ public class KristianBean implements Serializable {
       return planEntries;
       
   }
+  
+  
   
   public ArrayList<Assessment> getAllAssesments(){
       
@@ -346,5 +346,68 @@ public class KristianBean implements Serializable {
       
       return statusList;
   }
+  
+  public List<Module> getPlannedModulesForStudent(){
+      
+      ArrayList<PlanItem> plan = getAllPlanItems();
+      List<Module> modules = getModules();
+      
+      Iterator it = modules.iterator();
+      
+      Boolean isPlanned;
+      
+    while (it.hasNext()) {
+        Object module = it.next();
+    isPlanned = false;
+        for(PlanItem planItem:plan){
+      
+            if(planItem.getModule().equals(module)){
+                
+                isPlanned = true;
+            }
+        }
+            if(isPlanned == false){
+                it.remove();
+                
+            }
+        
+                
+        }
+      
+      return modules;
+  }
+  
+  public List<Module> getCurrentModule(){
+      
+      List<Module> plannedModules = getPlannedModulesForStudent();
+      
+      List <Assessment> assessments = getAllAssesments(); 
+      
+      Iterator it = plannedModules.iterator();
+      boolean shouldBeRemoved;
+        while (it.hasNext()) {
+          Object module = it.next();
+          shouldBeRemoved = false;
+      for(Assessment assessment: assessments){
+          
+          if(assessment.getModule().equals(module) && assessment.isApproved()==true){
+          
+              shouldBeRemoved = true;
+          
+          }
+          
+      }
+      if(shouldBeRemoved == true){
+          
+          it.remove();
+      }
+      }
+        return plannedModules;
+  }
+      
+ 
+
+      
+  
     
 }

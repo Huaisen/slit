@@ -11,9 +11,8 @@ public enum Page {
     home("/index"),
     teacher("/teacher/index"),
     modules,
-    module("teacher/createModule"),
-
-    admin("/admin/index"),
+    module("createModule"),
+    admin("admin/index"),
     users,
     user,
     student("/student/overview")
