@@ -13,34 +13,41 @@
     <h:body>
       <ui:composition template="/templates/masterlayout.xhtml">
       <ui:define name="content">
+          <h:form>
+              
+        <h3>Navn</h3>
+        <h:inputText value="#{moduleBean.selectedModule.name}" />
+
         <h3>Læringsmål</h3>
-        <h:inputTextarea rows="10" cols="80" value="#{moduleBean.selectedModule.description}" />
+        <h:inputTextarea rows="10" cols="80" value="#{moduleBean.selectedModule.learningGoals}" />
     
         <h3>Godkjennings Kriterier</h3>
-        <h:inputTextarea rows="10" cols="80" />        
+        <h:inputTextarea rows="10" cols="80" value="#{moduleBean.selectedModule.approvalCriteria}" />
         
         <h3>Modul filer</h3>
-        <h:form enctype="multipart/form-data">
-          <t:inputFileUpload label="Velg fil" value="#{uploadbean.upload}"/>
-          <br/>
-          <!-- and this button triggers the uploading and persisting process -->
-          <h:commandButton value="Last opp fil" action="#{uploadbean.submit()}"/>
-        </h:form>
+       
+        
         
        
         <h3>Deadline</h3>
-        <h:inputText />
+        <h:inputText value="#{moduleBean.selectedModule.deadline}">
+			<f:convertDateTime pattern="d-M-yyyy" timeZone="#{moduleBean.timeZone}" />
+
+        </h:inputText>
         <p>
-        <h:selectManyCheckbox value="">
-            <f:selectItem itemValue="1" itemLabel="Obligatorisk" />
-        </h:selectManyCheckbox>
+      
+
+            <h:selectBooleanCheckbox value="#{moduleBean.selectedModule.mandatory}" id="mandatory" />
+           <label for="mandatory" class="">Obligatorisk</label>      
+          
         </p>
         <p>
-        <h:form>
         <h:commandButton action="#{moduleBean.saveModule()}" value="Annuller" />
+
         <h:commandButton action="#{moduleBean.saveModule()}" value="Opprett modul" />
+                </p>
+
         </h:form>
-        </p>
         
 
 

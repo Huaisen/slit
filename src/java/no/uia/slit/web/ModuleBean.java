@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import no.uia.slit.ejb.ModulePersistenceService;
 import no.uia.slit.entity.Module;
-import no.uia.slit.entity.Student;
 
 
 /**
@@ -17,7 +17,6 @@ import no.uia.slit.entity.Student;
  * @author even
  */
 @Named("moduleBean")
-/*@ConversationScoped*/
 @SessionScoped
 public class ModuleBean implements Serializable {
     @EJB private ModulePersistenceService moduleSvc;
@@ -54,16 +53,24 @@ public class ModuleBean implements Serializable {
     
     public Page saveModule(){
         
-        Module aModule = new Module();
-        Module reqModule = new Module();
-
-        aModule.setName("Modul test");
-        aModule.setDescription("Hello");
-        aModule.setRequiredModule(reqModule);
-       
-        moduleSvc.save(aModule);
+        selectedModule = moduleSvc.save(selectedModule);
         
-        return Page.admin;
+        return Page.modules;
+    }
+    
+        public Page deleteModule(long id){
+        
+         selectedModule = moduleSvc.find(id);   
+        moduleSvc.remove(selectedModule);
+        
+        return Page.modules;
+    }
+        
+    public Module getLastId(){
+        
+        Module module = moduleSvc.getModuleFromDB(selectedModule);
+        
+        return module;
     }
     
     public static ArrayList<Module> getModules(){
@@ -84,21 +91,21 @@ public class ModuleBean implements Serializable {
       
       Module module1 = new Module();
       module1.setName("Modul 1");
-      module1.setDescription("Dette er læringsmål for modul 1");
+      module1.setLearningGoals("Dette er læringsmål for modul 1");
       module1.setId(1);
       modules.add(module1);
       
       calendar.set(2015, 3, 14);
       Module module2 = new Module();
       module2.setName("Modul 2");
-      module2.setDescription("Dette er læringsmål for modul 2");
+      module2.setLearningGoals("Dette er læringsmål for modul 2");
       module2.setId(2);
       module2.setDeadline(calendar.getTime());
       modules.add(module2);
       
       Module module3 = new Module();
       module3.setName("Modul 3");
-      module3.setDescription("Dette er læringsmål for modul 3");
+      module3.setLearningGoals("Dette er læringsmål for modul 3");
       module3.setId(3);
       modules.add(module3);
       
@@ -179,6 +186,10 @@ public class ModuleBean implements Serializable {
       
         }
       return null;
-  }    
+  } 
+      
+   public TimeZone getTimeZone() {
+     return TimeZone.getDefault();
+}
  
 }

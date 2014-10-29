@@ -10,7 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -22,11 +22,21 @@ public class Module {
    private long id;
    @Column(unique=true)
    private String name;
-   private String description;
-   @ManyToOne
-   private Module requiredModule;
+   private String learningGoals;
+   private String approvalCriteria;
    
+   private Boolean mandatory;
+      
+   @Temporal(javax.persistence.TemporalType.DATE)
    private Date deadline;
+   
+      public Boolean getMandatory() {
+        return mandatory;
+    }
+
+    public void setMandatory(Boolean mandatory) {
+        this.mandatory = mandatory;
+    }
 
     public Date getDeadline() {
         return deadline;
@@ -55,21 +65,23 @@ public class Module {
       this.name = name;
    }
 
-   public String getDescription() {
-      return description;
-   }
+   public String getLearningGoals() {
+        return learningGoals;
+    }
 
-   public void setDescription(String description) {
-      this.description = description;
-   }
+    public void setLearningGoals(String learningGoals) {
+        this.learningGoals = learningGoals;
+    }
 
-   public Module getRequiredModule() {
-      return requiredModule;
-   }
+    public String getApprovalCriteria() {
+        return approvalCriteria;
+    }
 
-   public void setRequiredModule(Module requiredModule) {
-      this.requiredModule = requiredModule;
-   }
+    public void setApprovalCriteria(String approvalCriteria) {
+        this.approvalCriteria = approvalCriteria;
+    }
+
+
    
     public ArrayList<ModuleFile> getFiles(){
       

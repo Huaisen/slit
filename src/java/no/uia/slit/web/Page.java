@@ -10,12 +10,14 @@ package no.uia.slit.web;
 public enum Page {
     home("/index"),
     teacher("/teacher/index"),
-    modules,
+    modules("/admin/listModules"),
     module("createModule"),
-    admin("admin/index"),
+    admin("/admin/index"),
     users,
     user,
-    student("/student/overview")
+    student("/student/overview"),
+    plan("/admin/createPlanItem"),
+    planItems("/admin/listPlanItems")
     ;
 
     String url;

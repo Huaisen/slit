@@ -1,6 +1,7 @@
 package no.uia.slit.ejb;
 
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -11,6 +12,7 @@ import no.uia.slit.entity.Module;
  *
  * @author even
  */
+@Stateless
 public class ModulePersistenceService {
 
    @PersistenceContext
@@ -31,12 +33,19 @@ public class ModulePersistenceService {
    }
 
    /** Save a module in the database */
-   public void save(Module m) {
-       em.merge(m);
+   public Module save(Module m) {
+       return em.merge(m);
    }
 
+   public Module getModuleFromDB(Module m){
+       
+      Module module = em.merge(m);
+      
+      return module;
+   }
    /** Remove a module from the database */
    public void remove(Module m) {
+       m = em.merge(m);
        em.remove(m);
    }
 }
