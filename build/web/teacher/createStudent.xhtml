@@ -2,24 +2,89 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
-        <title>Regestering Form</title>
+        
     </h:head>
     <h:body>
       <ui:composition template="/templates/masterlayout.xhtml">
       <ui:define name="content">
-        <h1> Opprett Student </h1>
-            <h:form>
-                <p> Fornavn  <br></br><h:inputText id="fornavn" value="#{createBean.fornavn}"/></p>
-                <p> Etternavn <br></br> <h:inputText id="etternavn" value="#{createBean.etternavn}"/></p>
-                <p> E-post <br></br><h:inputText id="epost" value="#{createBean.epost}"/></p>
-                <p> <input type="submit" name="Annuller" value="Annuller" action="#{createBean.epost}"/>   
-                    <input type="submit" name="opprett" value="Opprett" action="#{createBean.epost}"/></p>
-            </h:form>
+        <h1> Register Student </h1>
         
-    </ui:define>
-    </ui:composition> 
-    </h:body>
+        <h:form>
+            <h:panelGrid columns="2">
+        <h:outputText value="Student ID :" />
+        <h:panelGroup>
+          <h:inputText id="id" label="Student ID" value="#{studBean.studentid}" />
+          <h:message for="id"/>
+        </h:panelGroup>
+        <h:outputText value="First Name" />
+        <h:panelGroup>
+          <h:inputText id="fname" label="First Name"
+                       value="#{studBean.studentEntity.firstname}" required="true" />
+          <h:message for="fname" />
+        </h:panelGroup>
+                <h:outputText value="Last Name:" />
+        <h:panelGroup>
+          <h:inputText id="lname" label="Last Name"
+                       value="#{studBean.studentEntity.lastname}" required="true" />
+          <h:message for="lname" />
+        </h:panelGroup>
+                <h:outputText value="Email:" />
+        <h:panelGroup>
+          <h:inputText id="mail" label="Email"
+                       value="#{studBean.studentEntity.email}" required="true" />
+          <h:message for="mail" />
+        </h:panelGroup>
+        <h:commandButton value="Save"
+                       action="#{studBean.saveStudent}" />
+        <h:commandButton value="Delete"
+                       action="#{studBean.cancelStudent}" />
+            </h:panelGrid>
+      </h:form>
+        
+        <!-- h:dataTable is used to display lists of objects in table form. It
+    works a bit like a for-each loop. The value attribute refers to a list,
+    the tags inside h:dataTable will be repeated for each element in the list.
+    emp will refer to the object to display on the current table row -->
+    
+        
+        <!-- Display a list of the registered students -->
+        
+        <h1> Student List: </h1>
+        
+        <h:dataTable value="#{studBean.studentEntitys}" var="stud">
+        <h:column>
+            <!-- this is a column definition :-). The facet tag can be used
+            to specify various decorations (facets) on other tags - in this
+            case the column header. -->
+            <f:facet name="header"> StudentID</f:facet>
+            <!-- This is displayed in the cell -->
+            #{stud.studentid}
+        </h:column>
+        <h:column>
+            <f:facet name="header">FirstName</f:facet>
+            #{stud.firstname}
+        </h:column>
+        <h:column>
+            <f:facet name="header">LastName</f:facet>
+            #{stud.lastname}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Email</f:facet>
+            #{stud.email}
+        </h:column>
+    </h:dataTable>
+   
+      </ui:define>
+      </ui:composition>
+      
+    
+        
+        
+       
+        
+  </h:body>  
 </html>
 
