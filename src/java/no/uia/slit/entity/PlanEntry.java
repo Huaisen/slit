@@ -23,15 +23,9 @@ public class PlanEntry {
     
     
     //Constructor
-    public PlanEntry(int studentID, int moduleID, String planEntryDate, 
-            String moduleDeadline, String expectedDelivery, String deadlineExpectedDeliveryDiff)
+    public PlanEntry()
     {
-    this.studentID = studentID;
-    this.moduleID = moduleID;
-    this.planEntryDate = planEntryDate;
-    this.moduleDeadline = moduleDeadline;
-    this.expectedDelivery = expectedDelivery;
-    this.deadlineExpectedDeliveryDiff = deadlineExpectedDeliveryDiff;
+   
     }
 
 

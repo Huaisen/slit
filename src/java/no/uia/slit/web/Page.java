@@ -12,12 +12,14 @@ public enum Page {
     teacher("/teacher/index"),
     modules("/admin/listModules"),
     module("createModule"),
+    newStudent("/admin/createStudent"),
     admin("/admin/index"),
     users,
     user,
     student("/student/overview"),
-    plan("/admin/createPlanItem"),
-    planItems("/admin/listPlanItems")
+    plan("/student/createPlan"),
+    planItem("/student/createPlanItem"),
+    planItems("/student/listPlanItems")
     ;
 
     String url;

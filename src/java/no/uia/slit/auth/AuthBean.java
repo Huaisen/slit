@@ -3,7 +3,9 @@ package no.uia.slit.auth;
 import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.SelectItem;
@@ -38,6 +40,11 @@ public class AuthBean implements Serializable {
         System.out.println("editNewUser() creating...");
        selectedUser = new AuthUser();
        return Page.user;
+    }
+     public Page editNewStudent() {
+        System.out.println("editNewUser() creating...");
+       selectedUser = new AuthUser();
+       return Page.newStudent;
     }
 
     public Page editUser(String username) {
@@ -93,6 +100,27 @@ System.out.println(password1+" "+password2);
        authSvc.saveUser(selectedUser);
        return Page.users;
     }
+    
+        public Page saveSelectedUserAsStudent() throws NoSuchAlgorithmException {
+       if (password1 != null && (! password1.equals(""))) {
+System.out.println(password1+" "+password2);
+          if (password1.equals(password2)) {
+             selectedUser.setPassword(password1);
+          }
+          else {
+             JsfUtils.addMessage("userform:pwd1", "Passwords don't match!");
+             return Page.user;
+          }
+       }
+       
+             Set hashSet = new HashSet();
+
+       hashSet.add(AuthGroup.student);
+       
+       selectedUser.setGroups(hashSet);
+       authSvc.saveUser(selectedUser);
+       return Page.users;
+    }
 
     public Page deleteSelectedUser() {
         authSvc.removeUser(selectedUser);
@@ -105,4 +133,36 @@ System.out.println(password1+" "+password2);
         else JsfUtils.addMessage(null, "No such user: "+username);
         return Page.users;
     }
+    
+    public AuthUser getCurrentUser(){
+        
+        AuthUser currentUser = authSvc.findUser(JsfUtils.getUserName());
+
+        
+        return currentUser;
+    }
+    public void createStudentTestData() throws NoSuchAlgorithmException{
+       
+      
+      
+      int i = 1;
+       
+        while(i<=10){
+
+            editNewUser();
+            selectedUser.setUsername("Student" + i);
+            password1 = "student";
+            password2 = "student";
+
+            saveSelectedUserAsStudent();
+
+            i++;  
+
+
+        }
+ 
+          
+      
+      }
+  
 }

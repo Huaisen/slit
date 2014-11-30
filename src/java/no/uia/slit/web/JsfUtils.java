@@ -3,6 +3,7 @@ package no.uia.slit.web;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.TimeZone;
 import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIViewRoot;
@@ -21,6 +22,10 @@ import javax.servlet.http.HttpSession;
 @Named("jsfUtils")
 public class JsfUtils {
 
+    public static TimeZone returnTimeZone() {
+     return TimeZone.getDefault();
+    }
+  
     /**
      * Display an error message.
      *

@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:t="http://myfaces.apache.org/tomahawk">
+    <h:head>
+        <title>Opprett Modul/Rediger</title>
+            <h:outputStylesheet library="css" name="kristianCSS.css" />
+
+    </h:head>
+    <h:body>
+      <ui:composition template="/templates/masterlayout.xhtml">
+      <ui:define name="content">
+              
+              
+              <h:form>
+      <h:button outcome="blog" styleClass="go_to_blog_button" value="Gå til blog" />
+      </h:form>
+          <h:form>
+            <table class="overview_table table-header-rotated">
+                <tr>
+                    <th></th>
+                    <c:forEach items="#{moduleBean.getAllModules()}" var="module" >
+                        <th class="rotate-45"><div>
+        
+                        <h:commandLink value="" action="#{moduleBean.showOverview(module.id)}" >
+                        <h:outputText>
+                        <span>#{module.name}</span>
+                        </h:outputText>
+                        </h:commandLink>
+                        </div></th>
+      
+                    </c:forEach>
+
+                </tr>
+        
+        
+        
+                <tr>
+                    <td>#{jsfUtils.getUserName()}</td>
+                    <ui:repeat value="#{false}" var="status">
+
+                    <td class="#{false}"></td>
+      
+                    </ui:repeat>
+                    </tr>
+ 
+            </table>
+          </h:form>
+            <table border="1" class="assignments_status_table">
+                <tr>
+                    <th>Status</th>
+                    <th>Dato</th>
+                    <th>Kommentar</th>
+
+                </tr>
+                <tr style="height:20px">
+
+                    <td>Avventer godkjennelse</td>
+                    <td>8. oktober 2014</td>
+                    <td>Da er min innlevering klar</td>
+
+                </tr>
+            </table>
+        
+        
+        <div class="module_goals_and_files">
+        <div class="module_learning_goals_container">
+    
+            <p>#{moduleBean.selectedModule.learningGoals}</p>            
+        </div>
+        
+        <div class="module_files_container">
+            <ul>
+                <!--getFiles-->
+                
+                <c:forEach items="#{null}" var="moduleFile" >
+
+                    <li><a href="">#{false}</a></li>
+                </c:forEach>
+
+            </ul>
+            
+        </div>
+            <br></br>
+        </div>
+        <hr></hr>
+        <div class="file_upload_container">
+            
+     
+         <h:form id="fileUploadForm" enctype="multipart/form-data">
+          <t:inputFileUpload label="Select File" value="#{uploadbean.upload}"/>
+          <br/>
+          <!-- and this button triggers the uploading and persisting process -->
+          <h:commandButton id="fileUpload" value="Upload File" action="#{uploadbean.submit()}"/>
+          <h:message for="fileUpload"/>
+
+        </h:form>
+                
+                
+            
+            
+        </div>
+        
+        <div class="comment_field_container">
+            <label for="comment_textarea">Kommentar til innlevering</label> 
+            <textarea rows="10" cols="90" id="comment_textarea" class="comment_textarea"></textarea>
+ 
+        </div>
+            <div class="button_container">
+                          <h:form id="overviewForm">
+
+                          <h:panelGrid columns="1">
+
+               <h:panelGroup>
+              
+                <h:commandButton id="submit" action="#{assessmentBean.submitAssessment()}"  /> 
+              <h:message for="submit"/>
+                          </h:panelGroup>  
+
+                      </h:panelGrid>
+
+                    </h:form>
+<!--
+              <c:forEach items="#{null}" var="module" >
+        
+                  <p>abc:#{false}</p>
+        
+        </c:forEach>
+-->
+            </div>
+     
+      
+    </ui:define>
+    </ui:composition> 
+    </h:body>
+</html>
+

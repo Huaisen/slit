@@ -31,7 +31,7 @@
        
         <h3>Deadline</h3>
         <h:inputText value="#{moduleBean.selectedModule.deadline}">
-			<f:convertDateTime pattern="d-M-yyyy" timeZone="#{moduleBean.timeZone}" />
+			<f:convertDateTime pattern="d-M-yyyy" timeZone="#{JsfUtils.returnTimeZone}" />
 
         </h:inputText>
         <p>

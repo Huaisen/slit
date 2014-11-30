@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import no.uia.slit.auth.AuthUser;
 
 /**
  *
@@ -27,21 +28,35 @@ public class PlanItem {
    
    @Temporal(TemporalType.DATE)
    private Date plannedDate;
-  
-   /* Student inserted by Kristian */
-   private Student student;
+   @ManyToOne
+   private AuthUser user;
+   
+   private boolean planItemLocked;
 
-    public Student getStudent() {
-        return student;
+    public boolean isPlanItemLocked() {
+        return planItemLocked;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setPlanItemLocked(boolean planItemLocked) {
+        this.planItemLocked = planItemLocked;
+    }
+
+ 
+  
+
+    public AuthUser getUser() {
+        return user;
+    }
+
+    public void setUser(AuthUser user) {
+        this.user = user;
     }
    
    
     
    public PlanItem() {
+       
+       planItemLocked = false;
    }
 
    public long getId() {

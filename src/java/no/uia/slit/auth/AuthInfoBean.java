@@ -75,5 +75,9 @@ public class AuthInfoBean {
         return "teacher";
 
     }
+    public AuthUser returnCurrentAuthUser(){
+                
+        return authDb.findUser(getUserName());
+    }
 
 }

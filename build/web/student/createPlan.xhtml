@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+          
+      xmlns:hx="http://myfaces.apache.org/tomahawk">
+    <h:head>
+         <title>Opprett Plan</title>
+                 <h:outputStylesheet name="opprettplan.css" library="css" />
+
+    </h:head>
+    <h:body>
+      <ui:composition template="/templates/masterlayout.xhtml">
+
+      <ui:define name="content">
+        <h1> Opprett Plan </h1>
+        <p>For student:#{debugBean.userName}
+        
+        
+        </p>
+        <p title="Om Opprett Plan"> På denne siden kan du opprette en plan for alle modulene i faget IS-?.<br />
+            Velg fra menyen hvilken dato du ønsker hver modul skal være ferdig, husk at datoen ikke kan overstride deadline.
+            </p>
+
+     
+        <p>
+            
+            
+            
+        </p>
+        
+      <table>
+          <th></th>
+          <th>Modul</th>
+          <th>Deadline</th>
+          <th>Planlagt dato</th>
+          <th>Rediger</th>
+          
+          
+          <c:forEach items="#{moduleBean.allModules}" var="module">
+             <tr>
+                 <h:form>
+                     <td>
+                         
+                     <h:selectBooleanCheckbox value="#{module.mandatory}" disabled="#{module.mandatory}" id="mandatory" />
+                     </td>
+                  <td>#{module.name}</td>
+                  <td>
+                      
+                  <h:outputText value="#{module.deadline}" >
+                            <f:convertDateTime pattern="dd-MM-yyyy" timeZone="#{jsfUtils.returnTimeZone()}"/>
+                         </h:outputText>
+                  </td>
+                  <td>
+                      <c:choose> 
+
+                      <c:when test="#{planBean.selectedPlanItem.module == module}" >
+                          <h:inputHidden value="#{planBean.selectedPlanItem.module.deadline}" binding="#{moduleDateComponent}" />
+
+                          <h:inputText value="#{planBean.selectedPlanItem.plannedDate}" binding="#{planDateComponent}" required="true">
+                            <f:convertDateTime pattern="dd-MM-yyyy" timeZone="#{jsfUtils.returnTimeZone()}"/>
+                            <f:validator validatorId="dateRangeValidator" />
+                            <f:attribute name="planDateComponent" value="#{planDateComponent}" />
+                            <f:attribute name="moduleDateComponent" value="#{moduleDateComponent}" />
+
+                          </h:inputText>
+                          
+                      </c:when>
+                      <c:otherwise test="planBean.selectedPlanItem.module != module">
+                        <h:outputText value="#{planBean.getFirstPlanItemByModuleAndUser(module, authInfoBean.returnCurrentAuthUser()).plannedDate}" >
+                            <f:convertDateTime pattern="dd-MM-yyyy" timeZone="#{jsfUtils.returnTimeZone()}"/>
+                         </h:outputText>
+                      
+                      </c:otherwise>
+                      </c:choose>
+                  </td>
+                  <td>
+                   <c:choose> 
+
+                      <c:when test="#{planBean.selectedPlanItem.module == module}" >
+                      <h:commandButton value="Annuller" action="#{planBean.clearSelectedPlanItem()}" />    
+                      <h:commandButton value="Lagre" action="#{planBean.savePlanItem()}" />
+                          
+                      </c:when>
+                      <c:otherwise test="planBean.selectedPlanItem.module != module">
+                          
+                      <h:commandButton value="Endre" action="#{planBean.openPlanItem(module,authInfoBean.returnCurrentAuthUser())}" />
+                      </c:otherwise>
+                      </c:choose>   
+                      
+                  
+                  </td>
+                 </h:form>
+             </tr>
+          </c:forEach>
+          
+          
+   
+          
+      </table>
+        <br></br>
+        <br></br>
+        <br></br>
+        <h:form>
+            <h:commandButton action="#{planBean.lockPlanItems(authBean.currentUser)}" value="Opprett og lås plan" />  
+        </h:form>
+     </ui:define>
+          <ui:define name="menuitems">
+                  <ui:include src="/student/menu.xhtml" />
+
+      </ui:define>
+    </ui:composition>    
+    </h:body>
+</html>
+

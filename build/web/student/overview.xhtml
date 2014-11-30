@@ -16,16 +16,25 @@
               
               
               <h:form>
+                  
+                  <p>
+                      <c:if test="#{planBean.doesLockedPlanItemsExistForUser(authBean.currentUser)== false}" >
+            
+                          Det er nødvendigt å opprette en plan før du kan levere inn.
+                          <h:commandButton value="Oppret plan" action="#{planBean.openCreatePlan()}" />
+                      </c:if>
+                  </p>
+                  
       <h:button outcome="blog" styleClass="go_to_blog_button" value="Gå til blog" />
       </h:form>
           <h:form>
             <table class="overview_table table-header-rotated">
                 <tr>
                     <th></th>
-                    <c:forEach items="#{kristianBean.getModules()}" var="module" >
+                    <c:forEach items="#{moduleBean.allModules}" var="module" >
                         <th class="rotate-45"><div>
         
-                        <h:commandLink value="" action="#{kristianBean.showOverview(module.id)}" >
+                        <h:commandLink value="" action="#{studentBean.showOverview(module.id)}" >
                         <h:outputText>
                         <span>#{module.name}</span>
                         </h:outputText>
@@ -38,10 +47,10 @@
         
         
         
-            <ui:repeat value="#{kristianBean.getStudent()}" var="student">
+            <ui:repeat value="1" var="student">
                 <tr>
-                    <td>#{student.username}</td>
-                    <ui:repeat value="#{kristianBean.getModulesStatus()}" var="status">
+                    <td>#{authBean.getCurrentUser().username}</td>
+                    <ui:repeat value="#{studentBean.getModulesStatus()}" var="status">
 
                     <td class="#{status}"></td>
       
@@ -71,14 +80,14 @@
         <div class="module_goals_and_files">
         <div class="module_learning_goals_container">
     
-            <p>#{kristianBean.getSelectedModule().getDescription()}</p>            
+            <p>#{studentBean.getSelectedModule().learningGoals}</p>            
         </div>
         
         <div class="module_files_container">
             <ul>
                 <!--getFiles-->
                 
-                <c:forEach items="#{kristianBean.selectedModule.getFiles()}" var="moduleFile" >
+                <c:forEach items="#{studentBean.selectedModule.getFiles()}" var="moduleFile" >
 
                     <li><a href="">#{moduleFile.filename}</a></li>
                 </c:forEach>
@@ -126,7 +135,7 @@
 
                     </h:form>
 <!--
-              <c:forEach items="#{kristianBean.getCurrentModule()}" var="module" >
+                              <c:forEach items="#{studentBean.getCurrentModule()}" var="module" >
         
                   <p>abc:#{module.name}</p>
         
@@ -136,6 +145,10 @@
      
       
     </ui:define>
+                <ui:define name="menuitems">
+                  <ui:include src="/student/menu.xhtml" />
+
+      </ui:define>
     </ui:composition> 
     </h:body>
 </html>

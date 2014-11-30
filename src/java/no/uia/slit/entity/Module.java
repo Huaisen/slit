@@ -25,16 +25,16 @@ public class Module {
    private String learningGoals;
    private String approvalCriteria;
    
-   private Boolean mandatory;
+   private boolean mandatory;
       
    @Temporal(javax.persistence.TemporalType.DATE)
    private Date deadline;
    
-      public Boolean getMandatory() {
+      public boolean getMandatory() {
         return mandatory;
     }
 
-    public void setMandatory(Boolean mandatory) {
+    public void setMandatory(boolean mandatory) {
         this.mandatory = mandatory;
     }
 

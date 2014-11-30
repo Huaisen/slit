@@ -29,7 +29,9 @@ public class AuthPersistenceService {
    StudentPersister studentSvc;
 
    public AuthUser findUser(String name) {
-      return em.find(AuthUser.class, name);
+       
+          return em.find(AuthUser.class, name);
+      
    }
 
    public List<AuthUser> findAllUsers() {
