@@ -30,7 +30,10 @@
         
        <ui:repeat value="#{blogBean.getBlogs()}" var="entry">
            <p>#{entry.calendar}</p> 
-           <p>#{entry.blogText}</p>
+           <p>#{blogBean.blogText}</p>
+            <p>#{blogBean.studentid}</p>
+             <p>#{blogBean.id}</p>
+           
            <br></br>
         </ui:repeat>
 

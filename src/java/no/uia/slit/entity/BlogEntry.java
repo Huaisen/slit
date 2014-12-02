@@ -1,45 +1,61 @@
 package no.uia.slit.entity;
 
+ 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /*
  * @author Nadia
  */
-public class BlogEntry {
-    private int id;
-    private String blog;
+
+@Entity
+public class BlogEntry implements Serializable {
+     @Id @GeneratedValue
+   private long id;
+   @Column(unique=true)
+    private String blogText;
     private String calendar;
     private int studentid;
 
-    public int getId() {
-        return id;
-    }
-   
-
-    public BlogEntry(int id, String blog, String calendar, int studentid){
-        this.id = id;
-        this.blog = blog;
-        this.calendar = calendar;
-        this.studentid = studentid;
-    }
-
+    
+//constractor for klassen som inneholder id, blogtext,calendar og studetid
+    public BlogEntry(){
        
-    public int id() {
-        return id;
     }
-
-    public void setId(int id){
-        this.id = id;
-    }
-
-    public String getBlog() {
-        return blog;
-    }
-
-   
-    public void setBlog(String blog) {
-        this.blog=blog;
+    
+    public BlogEntry(int id,String blogText, String calendar, int studentid){
+     this.id= id;
+     this.blogText = blogText;
+     this.calendar = calendar;
+     this.studentid = studentid;
     }
     
 
+        
+   //blogEntry id
+    public long getid() {
+        return id;
+    }
+
+      //set metode for id
+    public void setId(int id){
+        this.id = id;
+        
+    }
+//blog teksten 
+    public String getBlogText() {
+        return blogText;
+    }
+
+   
+    public void setBlogText(String blogText) {
+        this.blogText=blogText;
+    }
+    
+// dato for innkrivet blogText
     public String getCalendar() {
         return calendar;
     }
@@ -53,8 +69,7 @@ public class BlogEntry {
     }
 
     public void setStudentid(int studentid) {
-        this.studentid = studentid;
+        this.studentid = studentid; 
     }
-       
+
 }
-     

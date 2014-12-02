@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import no.uia.slit.web.JsfUtils;
+import no.uia.slit.entity.BlogEntry;
+
 
 /**
  *
@@ -18,8 +20,11 @@ import no.uia.slit.web.JsfUtils;
 @Named("blogBean")
 @SessionScoped
 public class BlogBean implements Serializable {
-    
+    private int id;
     private String blogText;
+    private int studentid;
+    private int calendar; 
+    
 
     public String getBlogText() {
         return blogText;
@@ -28,15 +33,37 @@ public class BlogBean implements Serializable {
     public void setBlogText(String blogText) {
         this.blogText = blogText;
     }
-       
+    
+     public int getStudentid() {
+        return studentid;
+    }
+
+    public void setStudentid(int studentid){
+        this.studentid = studentid;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+    
+      public int calendar() {
+        return calendar;
+    }
+
+    public void calendar(int id){
+        this.calendar = calendar;
+    }
 
 private ArrayList<BlogEntry> blogs;
 public BlogBean(){
 }
     
   public ArrayList<BlogEntry> getBlogs(){
-      
-      blogs = new ArrayList<>();
+       blogs = new ArrayList<>();
      
       
       blogs.add(new BlogEntry(1,"Jeg skriver om Module 1...","15.10.14 kl.13:00",1));
@@ -44,8 +71,11 @@ public BlogBean(){
       blogs.add(new BlogEntry(3,"Jeg skriver om Module 3...","10.12.14 kl.13:00",1));
       
     return blogs;
-            
+       
   }
+      
+                 
+ 
   
   public void submitBlogEntry(){
   
